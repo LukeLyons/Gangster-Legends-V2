@@ -22,6 +22,10 @@
             
             $this->html .= $this->page->buildElement('resetPasswordEmail');
             
+            if($this->user->loggedin){
+				header("Location:?page=" . $this->page->landingPage); 
+                exit;
+            }
         }
         
         public function method_reset() {
