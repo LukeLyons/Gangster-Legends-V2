@@ -15,8 +15,11 @@
             $this->page->addToTemplate("loginPostfix", $settings->loadSetting("loginPostfix"));
 
             $this->html .= $this->page->buildElement('loginForm');
-
             
+            if($this->user->loggedin){
+				header("Location:?page=" . $this->page->landingPage); 
+                exit;
+            }
         }
         
         public function method_logout() {
