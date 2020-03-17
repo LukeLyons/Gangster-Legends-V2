@@ -30,6 +30,10 @@
                 "ref" => $ref
             ));
             
+            if($this->user->loggedin){
+				header("Location:?page=" . $this->page->landingPage); 
+                exit;
+            }
         }
         
         public function method_register() {
