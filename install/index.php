@@ -6,10 +6,10 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
-	require "../class/hooks.php";
-	require "../class/settings.php";
-	require "../class/image.php";
-	require "../class/user.php";
+	spl_autoload_register(function ($class) {
+        if(file_exists('../class/' . $class . '.php'))
+            include '../class/' . $class . '.php';
+    });
 
 	function heading($step, $text) {
 		echo '
