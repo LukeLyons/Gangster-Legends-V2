@@ -17,7 +17,7 @@
 					echo '<div class="alert alert-danger">Passwords do not match</div>';
 				} else {
 
-					$u = new User();
+					$u = new user();
 
 					$makeUser = $u->makeUser(
 	                    $_POST["user"], 
@@ -29,7 +29,7 @@
 	                	echo '<div class="alert alert-danger">'.$makeUser.'</div>';
 	                } else {
 	                    $_SESSION["userID"] = $makeUser;
-	                    $user = new User($makeUser);
+	                    $user = new user($makeUser);
 	                    $user->set("U_userLevel", 2);
 	                }
 				}
